@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>登陆页面</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+ 
+<body>
+  <form>
+    <script src="./login.js"></script>
+    <div id="login_box">
+       <h2>LOGIN</h2>
+       <div id="input_box">
+         <input id="username" name="username" placeholder="请输入用户名" required>
+       </div>
+       <div class="input_box">
+         <input id="password" type="password"  name="password" placeholder="请输入密码" required>
+       </div>
+       <button type="button" id="button">登录</button>
+     </div>
+    </form>
+
+<script>
+  var btn=document.getElementById("btn");
+  var usernameInput=document.getElementById("username");
+  var passwordInput=document.getElementById("password");
+  btn.onclick=function(){
+    var username=usernameInput.value;
+    var password=passwordInput.value;
+   $.post("./login.php",{username:username,password:password},function(data){
+     console.log(data)
+    })
+</script>
+
+</body>
+</html>
